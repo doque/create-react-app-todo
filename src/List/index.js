@@ -9,6 +9,9 @@ class List extends Component {
     };
   };
 
+  /**
+   * Reacts to onChange events
+   */
   handleChange = (event) => {
     const newTodo = event.target.value;
 
@@ -26,14 +29,26 @@ class List extends Component {
     event.preventDefault();
   }
 
+  removeTodo = (todo) => {
+    const { todos } = this.state;
+    todos.splice(todos.indexOf(todo), 1);
+    this.setState({ todos });
+  }
+
   render() {
     return (
       <form className="Todo" onSubmit={this.handleSubmit}>
+        
         <input placeholder="Neues Todo" type="text" onKeyUp={this.handleChange}/>
-        <h2>Meine TODOs</h2>
+
+        <h4>Meine Todos:</h4>
+
         <ul className="todos">
           {this.state.todos.map(todo =>
-             <li>{ todo }</li>
+             <li key={todo}>
+              { todo }
+              <span onClick={ () => this.removeTodo(todo) }> x </span>
+              </li>
           )}
         </ul>
       </form>

@@ -3,4 +3,9 @@
   margin: 3em auto;
   border: 1px solid lightgray;
   padding: 15px;
+  font: 18pt sans-serif;
+}
+
+.Todo input {
+  padding: 3px;
 }
