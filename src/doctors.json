@@ -1,0 +1,43 @@
+{
+    "doctors": [
+        {
+            "name": "Dr. Grün",
+            "skills": [
+                "Zahnreinigung",
+                "Fußball",
+                "Tennis",
+                "Golf"
+            ]
+        },
+        {
+            "name": "Dr. Schwarz",
+            "skills": [
+                "Fußball",
+                "Tennis"
+            ]
+        },
+        {
+            "name": "Dr. Gelb",
+            "skills": [
+                "Tennis",
+                "Golf",
+                "Segeln"
+            ]
+        },
+        {
+            "name": "Dr. Rot",
+            "skills": [
+                "Golf",
+                "Fußball"
+            ]
+        },
+
+        {
+            "name": "Dr. Blau",
+            "skills": [
+                "Segeln",
+                "Zahnreinigung"
+            ]
+        }
+    ]
+}
