@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly without TODOs 1`] = `
+<form
+  className="Todo"
+  onSubmit={[Function]}
+>
+  <input
+    onKeyUp={[Function]}
+    placeholder="Neues Todo"
+    type="text"
+  />
+  <h4>
+    Meine Todos:
+  </h4>
+  <ul
+    className="todos"
+  >
+    <span>
+      Nothing yet!
+    </span>
+  </ul>
+</form>
+`;
