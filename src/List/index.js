@@ -1,57 +1,42 @@
 import React, { Component } from "react";
-import _ from 'lodash';
-
 import "./List.css";
 
 class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedSkills: []
+      todos: []
     };
-    this.skills = ["Zahnreinigung", "Fußball", "Tennis", "Golf", "Segeln"];
   };
 
-  handleSelection(skill) {
-    const { selectedSkills } = this.state;
+  handleChange = (event) => {
+    const newTodo = event.target.value;
 
-    if (selectedSkills.indexOf(skill) > -1) {
-      selectedSkills.splice(selectedSkills.indexOf(skill), 1);
-    } else {
-      selectedSkills.push(skill);
+    // return key was pressed
+    if (newTodo !== "" && event.keyCode === 13) {
+      const { todos } = this.state;
+      todos.push(newTodo);
+      this.setState({
+        todos
+      });
     }
-    this.setState({
-      selectedSkills: [...new Set(selectedSkills)] // no duplicates
-    });
   }
 
-  doctorHasSkills(doctor) {
-    return _.intersection(doctor.skills, this.state.selected).length > 1;
+  handleSubmit(event){
+    event.preventDefault();
   }
 
   render() {
     return (
-      <div className="List">
-        <h2>Ausgewählte Ärzte</h2>
-        
-        <ul className="Skills">
-          {this.skills.map(skill =>
-             <li onClick={() => this.handleSelection(skill) }>
-              {
-                this.state.selectedSkills.indexOf(skill) > -1
-                ? <strong>{skill}</strong>
-                : skill
-              }
-            </li>
+      <form className="Todo" onSubmit={this.handleSubmit}>
+        <input placeholder="Neues Todo" type="text" onKeyUp={this.handleChange}/>
+        <h2>Meine TODOs</h2>
+        <ul className="todos">
+          {this.state.todos.map(todo =>
+             <li>{ todo }</li>
           )}
         </ul>
-
-        {this.props.doctors.map(doctor => {
-          <div className="Doctor">
-            <strong>{doctor.name}</strong> kann {doctor.skills.join(", ")}
-          </div>
-        })}
-      </div>
+      </form>
     );
   }
 }

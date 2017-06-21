@@ -1,4 +1,6 @@
-.List {
+.Todo {
   width: 400px;
-  margin: 0 auto;
+  margin: 3em auto;
+  border: 1px solid lightgray;
+  padding: 15px;
 }
